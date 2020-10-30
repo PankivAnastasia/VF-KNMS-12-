@@ -1,0 +1,4 @@
+word = input()
+
+for l in word :
+    print(l * 2, end = '')
