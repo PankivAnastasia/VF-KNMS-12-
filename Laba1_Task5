@@ -1,0 +1,28 @@
+type = input("Enter type - str/int:")
+if type == "str":
+
+    word = input("Enter word:").lower()
+    num = int(input("Enter key number:"))
+
+    letters = "abcdefghijklmnopqrstuvwxyz"
+    result = ""
+
+    for letter in word:
+        if letter in letters:
+            index = letters.index(letter)
+            newIndex = index + num
+            if newIndex >= 26:
+                newIndex = newIndex - 26
+            result = result + letters[newIndex]
+        else:
+            result = result + letter
+
+    print("Result is:", result)
+
+elif type == "int":
+    number = int(input("Enter number:"))
+    num = int(input("Enter key number:"))
+    result = number + num
+    print("Result is:", result)
+else:
+    print("\n!!Error: incorrect data!!")
