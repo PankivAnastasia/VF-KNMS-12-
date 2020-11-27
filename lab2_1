@@ -1,0 +1,54 @@
+def get_data_about_variant():
+    letter = input("Вкажіть варіант програми (a/b):")
+    if letter == "a" or letter == "b":
+        return letter
+    else:
+        print("Ви ввели не коректні дані, спробуйте ще раз:")
+        return get_data_about_variant()
+
+
+def get_words():
+    return input("Запишіть кілька слів:")
+
+
+def run_variant(variant, words):
+    def run_variant_a():
+        pryimennyk = ['in', 'on', 'of', 'with',
+                      'under', 'out', 'after',
+                      'at', 'above', 'between']
+
+        list_words = words.split(' ')
+        list_words.sort()
+        list_words = set(list_words)
+
+        for word in list_words:
+            if word not in pryimennyk:
+                print(word)
+
+    def run_variant_b():
+        alphabet = "abcdefghijklmnopqrstuvwxyz"
+        a = {}
+        for letter in words:
+            if letter in alphabet:
+                if letter not in a.keys():
+                    a[letter] = 1
+                else:
+                    a[letter] += 1
+        print(a)
+
+    if variant == "a":
+        run_variant_a()
+
+    if variant == "b":
+        run_variant_b()
+    pass
+
+
+def main():
+    variant = get_data_about_variant()
+    words = get_words()
+    run_variant(variant, words)
+    pass
+
+
+main()
