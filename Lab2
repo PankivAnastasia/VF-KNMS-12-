@@ -1,0 +1,24 @@
+variant = input("Вкажіть варіант програми (a/b):")
+nabSliv = input("Запишіть кілька слів:")
+pryimennyk = ['in', 'on', 'of', 'with', 'under', 'out', 'after', 'at', 'above',
+              'between']
+
+if variant == "a":
+    words = nabSliv.split(' ')
+    words.sort()
+    words = set(words)
+
+    for word in words:
+        if word not in pryimennyk:
+            print(word)
+
+elif variant == "b":
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    a = {}
+    for letter in nabSliv:
+        if letter in alphabet:
+            if letter not in a.keys():
+                a[letter] = 1
+            else:
+                a[letter] += 1
+    print(a)
